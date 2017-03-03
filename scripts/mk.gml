@@ -1,61 +1,68 @@
+// Detect if Modifier keys are pressed
+// Backspace key
 if(keyboard_check_pressed(8)){
-    if(cp=mp[li] && cp>0){
-        if(nt.x = x-7 && nt.y = y){
-            with(nt){
-                instance_destroy();
-            }
-            
+    // Makes sure the cursor is at the end of the line
+    // Also makes sure that there is already text on the line
+    // Check that the object it's trying to delete is behind the cursor
+    if(cp=mp[li] && mp[li]>0){
+        // Then if all those values are checked, then delete the object
+        with(pc[li,cp-1){
+            instance_destroy();
         }
-        
+
+        // Takes away one from the cursors position
+        // And prevents you from moving back to that space without typing
         cp -= 1;
         mp[li] -= 1;
-        
+
     }
-    else if(cp=0 && cp=mp[li] && li<ml){
-        li += 1;
-        for(i=li;i<=ml;i+=1){
-            for(j=1;j<=mp[li];j+=1){
-                dt[i] += 1;
-            }
-        
+    // Makes sure that the cursors position is at 0
+    // Also that the current line isn't the last line
+    else if (cp=mp[li] && mp[li]<1 && li<ml) {
+        // i in this for loop means the current line, i is equal to the new current line[li+1]
+        // the purpose of this for loop is to count the instances of every line below the current line[li]
+        for(i=li+1;i<=ml;i+=1){
+            // dt[i] is the temporary instance count On a line
+            dt[i] = mp[i]-1;
+
         }
-        li -= 1;
+        // This for loop cluster goes to every line and every position on every line and recreates the instances
+        // scanned above one line above their previous line[translation: moves all text up one line]
         for(i=li;i<=ml;i+=1){
             for(j=0;j<=dt[i+1];j+=1){
+                // See td.gml script[GML/scripts/td.gml] to understand what it does
                 td();
-            
             }
-            
+
         }
-        
+
+        // Remove one line because you hit backspace
         ml -= 1;
-        
+
     }
+    // If you're at the beginning of a line and you're in the middle of the text
     else if(cp=0 && li<ml){
+        // Checks every line of the number of instances on that line
         for(i=li;i<=ml;i+=1){
-            for(j=0;j<=mp[li];j+=1){
-                dt[i] += 1;
-            }
-            
+            dt[i] = mp[i]-1;
         }
-        li -= 1;
-        for(i=li;i<=ml;i+=1){
+        for(i=li-1;i<=ml;i+=1){
             for(j=0;j<dt[i+1];j+=1){
                 td();
-            
+
             }
-            
+
         }
-        
+
         ml -= 1;
-        
+
     }
     else if(cp=mp[li] && li=ml){
         li -= 1;
         cp = mp[li];
         ml -= 1;
     }
-    
+
 }
 if(keyboard_check_pressed(vk_enter)){
     if(li=ml && cp=mp[li]){
@@ -64,57 +71,37 @@ if(keyboard_check_pressed(vk_enter)){
         cp = 0;
     }
     else if(li<ml && cp=mp[li]){
-        dt[li] = 0;
-        
         for(i=li;i<ml;i+=1){
-            for(j=cp;j<mp[i];i+=1){
-                dt[i] += 1;
-            }
-            
+            dt[i] = mp[i]-cp;
         }
         li += 1;
         cp = 0;
-        for(i=li;i<ml;i+=1){
-            for(j=cp;j<mp[i];i+=1){
-                dt[i] += 1;
-            }
-            
-        }
-        
+
+        // For loops go here
+
         ml += 1;
-        
+
     }
 
 }
 if(keyboard_check_pressed(vk_up)){
-    if(li>1){
-        if(mp[li-1]<mp[li]){
-            cp = mp[li-1];
-        }
-        else{
-            cp = cp;
-        }
-        
-        li -= 1;
-        
+    if(li>1 && mp[li-1]<mp[li]){
+        cp = mp[li-1];
     }
-    else{
-        li = li;
-    }
-    
+
+    li -= 1;
+
 }
 if(keyboard_check_pressed(vk_down)){
-    if(li<ml){
+    if(li<ml && mp[li+1]>mp[li]){
+        cp = mp[li];
         li += 1;
-        if(mp[li-1]>mp[li]){
-            cp = mp[li];
-        }
-        else{
-            cp = cp;
-        }
-        
     }
-    
+    else if(li<ml && mp[li+1]<mp[li]){
+        cp = mp[li+1];
+        li += 1;
+    }
+
 }
 if(keyboard_check_pressed(vk_left)){
     if(cp>0){
@@ -125,9 +112,9 @@ if(keyboard_check_pressed(vk_left)){
             li -= 1;
             cp = mp[li];
         }
-        
+
     }
-    
+
 }
 if(keyboard_check_pressed(vk_right)){
     if(cp<mp[li]){
@@ -138,11 +125,12 @@ if(keyboard_check_pressed(vk_right)){
             li += 1;
             cp = 0;
         }
-        
+
     }
-    
+
 }
-if(keyboard_check_pressed(32)){// 
+// Check if the space key is pressed
+if(keyboard_check_pressed(32)){
     if(cp=mp[li] && mp[li]<43){
         pc[li,cp] = instance_create(cp*7,li*8,oc);
         pc[li,cp].image_index = 90;
@@ -150,7 +138,7 @@ if(keyboard_check_pressed(32)){//
             cp += 1;
             mp[li] += 1;
         }
-        
+
     }
     else if(cp<mp[li]){
         if(cp>0){
@@ -163,9 +151,9 @@ if(keyboard_check_pressed(32)){//
                 with(pc[li,i-1]){
                     instance_destroy();
                 }
-                    
+
             }
-            
+
         }
         if(cp=0){
             mp[li] += 1;
@@ -178,16 +166,16 @@ if(keyboard_check_pressed(32)){//
                     with(pc[li,i-1]){
                         instance_destroy();
                     }
-                    
+
                 }
-                    
+
             }
-            
+
         }
-        
+
         pc[li,cp] = instance_create(cp*7,li*8,oc);
         pc[li,cp].image_index = 90;
-            
+
     }
-        
+
 }
