@@ -24,34 +24,27 @@ if(keyboard_check_pressed(8)){
         for(i=li+1;i<=ml;i+=1){
             // dt[i] is the temporary instance count On a line
             dt[i] = mp[i]-1;
-
-        }
-        // This for loop cluster goes to every line and every position on every line and recreates the instances
-        // scanned above one line above their previous line[translation: moves all text up one line]
-        for(i=li;i<=ml;i+=1){
-            for(j=0;j<=dt[i+1];j+=1){
-                // See td.gml script[GML/scripts/td.gml] to understand what it does
-                td();
+            // This for loop cluster goes to every line and every position on every line and recreates the instances
+            // scanned above one line above their previous line[translation: moves all text up one line]
+            for(j=0;j<=dt[i];j+=1){
+                td(0);
             }
-
+            
         }
 
-        // Remove one line because you hit backspace
+        // Remove one line because you hit backspace when your cursors position was at 0
         ml -= 1;
 
     }
-    // If you're at the beginning of a line and you're in the middle of the text
-    else if(cp=0 && li<ml){
-        // Checks every line of the number of instances on that line
+    // If you're at the beginning of a line and the line you're editing is in the middle of the document, but also not on line 1
+    else if(cp=0 && li<ml && li>0){
+        // Checks every line for the number of instances on that line[which is just the maximum position minus 1]
         for(i=li;i<=ml;i+=1){
             dt[i] = mp[i]-1;
-        }
-        for(i=li-1;i<=ml;i+=1){
             for(j=0;j<dt[i+1];j+=1){
-                td();
-
+                td(0);
             }
-
+            
         }
 
         ml -= 1;
