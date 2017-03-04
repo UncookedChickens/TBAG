@@ -99,14 +99,11 @@ if(keyboard_check_pressed(vk_up)){
 
 }
 if(keyboard_check_pressed(vk_down)){
-    if(li<ml && mp[li+1]>mp[li]){
-        cp = mp[li];
-        li += 1;
-    }
-    else if(li<ml && mp[li+1]<mp[li]){
+    if(li<ml && mp[li+1]<mp[li]){
         cp = mp[li+1];
-        li += 1;
     }
+
+    li += 1;
 
 }
 if(keyboard_check_pressed(vk_left)){
