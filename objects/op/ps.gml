@@ -1,36 +1,41 @@
-//basic physics//
+// Step event // Basic physics
 
+// This code will make the character assume it's always on the ground
 gravity = 0;
 
+// If there is no ground below the player, then keep falling
 if(!place_meeting(x,y+1,oc)){
     gravity = .5;
 }
 
-//walk physics//
+// Step event // Walk physics
 
-if(keyboard_check_pressed(ord("A"))){
+if(keyboard_check_pressed(lk)){
     hspeed = -.5;
-    sw = pl;
+    sprite_index = wl;
 }
-if(keyboard_check_pressed(ord("D"))){
+if(keyboard_check_pressed(rk)){
     hspeed = +.5;
-    sw = pr;
+    sprite_index = wr;
 }
-if(keyboard_check_released(ord("A"))){
+if(keyboard_check_released(lk)){
     hspeed = 0;
+    sprite_index = sc;
 }
-if(keyboard_check_released(ord("D"))){
+if(keyboard_check_released(rk)){
     hspeed = 0;
+    sprite_index = sc;
 }
 
-//jump physics//
-/*if(keyboard_check_pressed(ord("W"))){
-    if(j=1){
-        //do nothing cuase you're already in the air//
-    }
-    else{
-        vspeed = -.7;
-        j = 1;
-    }
-    
+// Step event // Jump physics
+
+if(keyboard_check_pressed(jk)){
+	st = 1;
+    vspeed = -5;
+}
+if(vspeed<=0){
+	sprite_index = ju;
+}
+else{
+	sprite_index = jd;
 }
