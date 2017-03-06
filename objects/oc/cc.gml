@@ -4,6 +4,7 @@ image_speed = 0.5;
 cp = 0;
 li = 1;
 ml = 1;
+md = 0;
 mp[0] = 0;
 pc[0,0] = 0;
 
