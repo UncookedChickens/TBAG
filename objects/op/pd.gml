@@ -1,2 +1,7 @@
 draw_self();
-draw_sprite(pw,image_index,x,y);
+if(speed!=0){
+    draw_sprite(sc,image_index,x,y);
+}
+else{
+    draw_sprite(sw,0,x,y);
+}
