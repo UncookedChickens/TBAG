@@ -52,9 +52,10 @@ if(keyboard_check_pressed(32)){
     else if(cp<mp[li]){
         if(cp>=0){
             mp[li] += 1;
-            for(i=mp[li]-1;i>cp;i-=1){
+            for(i=mp[li];i>cp;i-=1){
                 pc[li,i] = instance_create(i*7,li*8,ot);
                 if(instance_exists(pc[li,i-1])){
+                    pc[li,i].sprite_index = pc[li,i-1].sprite_index;
                     pc[li,i].image_index = pc[li,i-1].image_index;
                 }
                 with(pc[li,i-1]){
