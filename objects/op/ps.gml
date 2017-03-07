@@ -20,11 +20,13 @@ if(keyboard_check_pressed(rk)){
 }
 if(keyboard_check_released(lk)){
     hspeed = 0;
-    sprite_index = sc;
+    image_speed = 0;
+    image_index = 0;
 }
 if(keyboard_check_released(rk)){
     hspeed = 0;
-    sprite_index = sc;
+    image_speed = 0;
+    image_index = 0;
 }
 
 // Step event // Jump physics
@@ -32,10 +34,4 @@ if(keyboard_check_released(rk)){
 if(keyboard_check_pressed(jk)){
 	st = 1;
     vspeed = -5;
-}
-if(vspeed<=0){
-	sprite_index = ju;
-}
-else{
-	sprite_index = jd;
 }
