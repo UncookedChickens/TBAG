@@ -1,14 +1,12 @@
 // Detect if Modifier keys are pressed
 // Backspace key
-if(keyboard_check_pressed(8)){
+if(kp(8)){
     // Makes sure the cursor is at the end of the line
     // Also makes sure that there is already text on the line
     // Check that the object it's trying to delete is behind the cursor
     if(mp[li]>0 && cp=mp[li]){
         // Then if all those values are checked, then delete the object
-        with(pc[li,cp-1]){
-            instance_destroy();
-        }
+        dt(pc[li,cp-1]);
 
         // Takes away one from the cursors position
         // And prevents you from moving back to that space without typing
@@ -40,7 +38,7 @@ if(keyboard_check_pressed(8)){
 
 }
 // Check if the space key is pressed
-if(keyboard_check_pressed(32)){
+if(kp(32)){
     if(cp=mp[li] && mp[li]<43){
         pc[li,cp] = instance_create(cp*7,li*8,ot);
         if(instance_exists(pc[li,cp])){
@@ -58,9 +56,7 @@ if(keyboard_check_pressed(32)){
                     pc[li,i].sprite_index = pc[li,i-1].sprite_index;
                     pc[li,i].image_index = pc[li,i-1].image_index;
                 }
-                with(pc[li,i-1]){
-                    instance_destroy();
-                }
+                dt(pc[li,cp-1]);
 
             }
 
@@ -71,7 +67,14 @@ if(keyboard_check_pressed(32)){
     }
 
 }
-if(keyboard_check_pressed(vk_enter)){
+if(kp(vk_tab)){
+	switch(global.md){
+    	case 0:global.md=1 instance_create(op);break;
+        case 1:global.md=0;break;
+    }
+    
+}
+if(kp(vk_enter)){
     if(li=ml && cp=mp[li]){
         li += 1;
         ml += 1;
@@ -91,7 +94,7 @@ if(keyboard_check_pressed(vk_enter)){
     }
 
 }
-if(keyboard_check_pressed(vk_up)){
+if(kp(vk_up)){
     if(li>1 && mp[li-1]<mp[li]){
         cp = mp[li-1];
     }
@@ -99,7 +102,7 @@ if(keyboard_check_pressed(vk_up)){
     li -= 1;
 
 }
-if(keyboard_check_pressed(vk_down)){
+if(kp(vk_down)){
     if(li<ml && mp[li+1]<mp[li]){
         cp = mp[li+1];
     }
@@ -107,7 +110,7 @@ if(keyboard_check_pressed(vk_down)){
     li += 1;
 
 }
-if(keyboard_check_pressed(vk_left)){
+if(kp(vk_left)){
     if(cp>0){
         cp -= 1;
     }
@@ -120,7 +123,7 @@ if(keyboard_check_pressed(vk_left)){
     }
 
 }
-if(keyboard_check_pressed(vk_right)){
+if(kp(vk_right)){
     if(cp<mp[li]){
         cp += 1;
     }
