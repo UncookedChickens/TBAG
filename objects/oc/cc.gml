@@ -17,12 +17,14 @@ ex = 0;
 ey = 0;
 ml = 1;
 mp[0] = 0;
+tp[0] = 0;
 pc[0,0] = 0;
 global.md = 0;
 
 for(i=0;i<100;i+=1){
     for(j=0;j<37;j+=1){
         mp[i] = 0;
+		tp[i] = 0;
         pc[i,j] = 0;
     }
 

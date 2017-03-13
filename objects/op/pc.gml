@@ -1,10 +1,13 @@
 // Create event // Init variables
 
+// Standard definitions
+// pl = player_left // Legs
+// pr = player_right // Legs
+// ps = player_stand // Head
+// pe = player_walk // Head
+
 // Variable definitions
 // st = state
-// wl = walk_left_sprite
-// wr = walk_right_sprite
-// sc = character_stand_sprite
 // wl = walk_left_sprite // Legs
 // wr = walk_right_sprite // Legs
 // sc = character_stand_sprite // Head

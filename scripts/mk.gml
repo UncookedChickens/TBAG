@@ -15,10 +15,8 @@ if(kp(8)){
 
     }
     // If you're at the beginning of a line and the line you're editing is in the middle of the document, but also not on line 1
-    else if(cp=0 && li>1 && li<ml){
-         if(mp[li]>0){
-             li -= 1;
-         }
+    else if(cp=0 && li>1 && li<=ml && mp[li]>=0){
+      	li -= 1;
         // Checks every line for the number of instances on that line[which is just the maximum position minus 1]
         for(i=li;i<=ml;i+=1){
             for(j=0;j<=mp[i];j+=1){
@@ -31,15 +29,15 @@ if(kp(8)){
 
     }
     else if(cp=mp[li] && li=ml){
-        li -= 1;
-        cp = mp[li];
-        ml -= 1;
+      	li -= 1;
+    	cp=mp[li];
+      	ml -= 1;
     }
 
 }
 // Check if the space key is pressed
 if(kp(32)){
-    if(cp=mp[li] && mp[li]<43){
+    if(cp=mp[li] && x<room_width){
         pc[li,cp] = instance_create(cp*7,li*8,ot);
         if(instance_exists(pc[li,cp])){
             cp += 1;
@@ -56,6 +54,7 @@ if(kp(32)){
                     pc[li,i].sprite_index = pc[li,i-1].sprite_index;
                     pc[li,i].image_index = pc[li,i-1].image_index;
                 }
+              
                 dt(pc[li,cp-1]);
 
             }
@@ -67,13 +66,13 @@ if(kp(32)){
     }
 
 }
-if(kp(vk_tab)){
+/*if(kp(vk_tab)){
 	switch(global.md){
     	case 0:global.md=1 instance_create(op);break;
         case 1:global.md=0;break;
     }
     
-}
+}*/
 if(kp(vk_enter)){
     if(li=ml && cp=mp[li]){
         li += 1;
@@ -82,7 +81,7 @@ if(kp(vk_enter)){
     }
     else if(li<ml && cp=mp[li]){
         for(i=li;i<ml;i+=1){
-            dt[i] = mp[i]-cp;
+            tp[i] = mp[i]-cp;
         }
         li += 1;
         cp = 0;
