@@ -1,11 +1,13 @@
 // Step event // Checks it it is the start or end character
 
 if(ch=1){
+	
 	if(image_index=50 && sprite_index=cs){
     	oc.sx = x;
     	oc.sy = y;
       	ch = 0;
     }
+	
 	if(image_index=57 && sprite_index=cs){
     	// THIS IS GENIUS!!!
       	// The object_cursor position is cursor_position[the variable] multiplied by 7
