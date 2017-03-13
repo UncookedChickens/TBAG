@@ -10,8 +10,8 @@ lr.gml = scr_load_resources() <br>
 td.gml = scr_text_destroy() <br>
 tc.gml = scr_text_recreate() <br><br>
 
-Inside an objects' folder, you'll see a few files<br>
-these are the events of the object<br>
-The first letter is always the second character in the objects name<br>
-So if the objects name is oc, then the create event in that object will be cc.gml<br>
+If the objects name is oc[object_cursor], then the create event in that object will be cc.gml<br>
+                                                                                       ^
+                                                                              This is the 'c' in oc
+                                                                              the other c is 'create'
 Same for the step event and draw event<br>
