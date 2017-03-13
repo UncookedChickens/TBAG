@@ -1,5 +1,5 @@
 # TBAG
-# <b>T</b>ext <b>B</b>ased <b>A</b>dventure <b>G</b>ame <br>
+<b>T</b>ext <b>B</b>ased <b>A</b>dventure <b>G</b>ame <br>
 GML projects on Github <br><br>
 
 oc = obj_cursor <br>
