@@ -18,4 +18,5 @@ tc = scr_text_recreate() <br><br>
 - [ ] Fully integrate new platformer engine
 - [ ] Character customization -- be able to change the color of your character
 
+## Preview of the game editor
 ![Screenshot of game](https://github.com/UncookedChickens/uncookedchickens.github.io/blob/master/img/TBAG_splash.png?raw=true)
