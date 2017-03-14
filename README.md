@@ -12,7 +12,7 @@ lr.gml = scr_load_resources() <br>
 td.gml = scr_text_destroy() <br>
 tc.gml = scr_text_recreate() <br><br>
 
-##Completion list
+## Completion list
 - [x] Complete text engine[be able to type any character on the keyboard without problems]
 - [x] Tab button switches mode between editing level and testing level
 - [ ] Fully integrate new platformer engine
