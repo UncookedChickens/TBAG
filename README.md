@@ -1,17 +1,21 @@
 # TBAG
 <b>T</b>ext <b>B</b>ased <b>A</b>dventure <b>G</b>ame <br>
-GML projects on Github <br><br>
 
+## Objects and scripts with lengthened names
 oc = obj_cursor <br>
 ot = obj_text_symbols <br>
 op = obj_player <br>
+om = obj_moveable <br>
+
 mk.gml = scr_modifier_keys() <br>
 lr.gml = scr_load_resources() <br>
 td.gml = scr_text_destroy() <br>
 tc.gml = scr_text_recreate() <br><br>
 
-If the objects name is oc[object_cursor], then the create event in that object will be cc.gml<br>
-                                                                                       ^
-                                                                              This is the 'c' in oc
-                                                                              the other c is 'create'
-Same for the step event and draw event<br>
+##Completion list
+- [x] Complete text engine[be able to type any character on the keyboard without problems]
+- [x] Tab button switches mode between editing level and testing level
+- [ ] Fully integrate new platformer engine
+- [ ] Character customization -- be able to change the color of your character
+
+![Screenshot of game](https://github.com/UncookedChickens/uncookedchickens.github.io/blob/master/img/TBAG_splash.png?raw=true)
