@@ -1,30 +1,22 @@
-// Create event // Init variables
+//Physics objects must call the parent object's create event
+//to initialize physics variables.  Here we are calling it
+//BEFORE we initialize the player's stats because obj_moveable
+//also defines S_SLOPE_SLOW for itself and we want to
+//overwrite the value of it with one specifically for obj_player
+event_inherited();
 
-// Standard definitions
-// pl = player_left // Legs
-// pr = player_right // Legs
-// ps = player_stand // Head
-// pe = player_walk // Head
+//Here some player stats are defined (so they can be easily
+//tweaked if needed).
+SG = 0.3;      //Accel. due to gravity (pixels/step*step)
+RA = 0.8;      //Accel. from running on ground (pixels/step*step)
+RF = 0.5;      //Friction on the ground (pixels/step*step)
+AA = 0.4;      //Accel. from running in the air (pixels/step*step)
+AF = 0.2;      //Friction in the air (pixels/step*step)
+JS = -06;
+DS = -04;       //Double jump speed
+MH = 4.0;        //Max horizontal speed
+MV = 5.0;        //Max vertical speed
+SS = 0.7;      //Decceleration while climbing slopes
 
-// Variable definitions
-// st = state
-// wl = walk_left_sprite // Legs
-// wr = walk_right_sprite // Legs
-// sc = character_stand_sprite // Head
-// sw = character_walk_sprite // Head
-// lk = move_left_key
-// rk = move_right_key
-// jk = jump_key
-
-image_speed = 0.07;
-
-st = 0;
-pw = 0;
-wl = pl;
-wr = pr;
-sc = ps;
-sw = pw;
-
-lk = ord("A");
-rk = ord("D");
-jk = ord("W");
+//Whether the player can currently double jump
+cj = true;   

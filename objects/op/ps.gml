@@ -1,45 +1,58 @@
-// Step event // Basic physics
+/*      PLAYER INPUT EVAL       */
 
-// This code will make the character assume it's always on the ground
-
-// If there is no ground below the player, then keep falling
-if(!place_meeting(x,y+1,oc)){
-    gravity = .5;
-  	st = 1;
-}
-else{
-  	gravity = 0;
-  	st = 0;
+var al, fr;
+if(og){
+    al = RA;
+    fr = RF;
+} else {
+    al = AA;
+    fr = AF;
 }
 
-// Step event // Walk physics
 
-if(keyboard_check_pressed(lk)){
-  	image_speed = 0.1;
-    hspeed = -.5;
-    sprite_index = wl;
-}
-if(keyboard_check_pressed(rk)){
-  	image_speed = 0.1;
-    hspeed = +.5;
-    sprite_index = wr;
-}
-if(keyboard_check_released(lk)){
-    hspeed = 0;
-    image_speed = 0;
-    image_index = 0;
-}
-if(keyboard_check_released(rk)){
-    hspeed = 0;
-    image_speed = 0;
-    image_index = 0;
+if(keyboard_check_direct(key_right)){
+    //Running right
+    
+    //First add frtion if currently running left
+    if (hs < 0)
+        hs = ap( hs, 0, fr );
+        
+    hs = ap( hs, MH, al ); 
+
+} else if(keyboard_check_direct(key_left)){
+    //Running left
+    
+    //First add frtion if currently running right
+    if (hs > 0)
+        hs = ap( hs, 0, fr );
+        
+    hs = ap( hs, -MH, al ); 
+
+} else {
+    //Stopping
+
+    hs = ap( hs, 0, fr );
+
 }
 
-// Step event // Jump physics
 
-if(keyboard_check_pressed(jk)){
-	st = 1;
-    vspeed = -5;
-  	image_speed = 0;
-  	image_index = 0;
+if (og) {
+
+    cj = true;
+    
+    //Jumping
+    if(keyboard_check_pressed(key_jump))
+        vs = JS;
+
+} else {
+
+    //Gravity
+    vs = ap( vs, MV, SG );
+
+    //Double jumping
+    if (keyboard_check_pressed( key_jump ) && cj) {
+        cj = false;
+        vs = DS;
+    }
+    
 }

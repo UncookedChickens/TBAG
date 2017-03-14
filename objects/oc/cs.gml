@@ -1,5 +1,5 @@
-x = cp*7;
-y = li*8;
+x = cp*6;
+y = li*6;
 
 if(keyboard_check(16)){
     if(keyboard_check(16) && keyboard_check_pressed(vk_anykey)){
