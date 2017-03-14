@@ -7,10 +7,10 @@ ot = obj_text_symbols <br>
 op = obj_player <br>
 om = obj_moveable <br>
 
-mk.gml = scr_modifier_keys() <br>
-lr.gml = scr_load_resources() <br>
-td.gml = scr_text_destroy() <br>
-tc.gml = scr_text_recreate() <br><br>
+mk = scr_modifier_keys() <br>
+lr = scr_load_resources() <br>
+td = scr_text_destroy() <br>
+tc = scr_text_recreate() <br><br>
 
 ## Completion list
 - [x] Complete text engine[be able to type any character on the keyboard without problems]
