@@ -10,7 +10,6 @@ if(instance_exists(pc[l,j])){
     pc[i,j].image_index = pc[l,j].image_index;
     mp[i] += 1;
     mp[l] -= 1;
-
     with(pc[l,j]){
         instance_destroy();
     }
