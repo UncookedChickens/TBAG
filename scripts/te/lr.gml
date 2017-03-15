@@ -8,7 +8,7 @@ wd = working_directory;
 //global.
 
 // Load scripts from TBAG/scripts folder
-global.mk = wd + "\scripts\te\mk.gml";
+/*global.mk = wd + "\scripts\te\mk.gml";
 global.td = wd + "\scripts\te\td.gml";
 
 global.cb = wd + "\scripts\pp\cb.gml";
@@ -16,7 +16,7 @@ global.sg = wd + "\scripts\pp\sg.gml";
 global.si = wd + "\scripts\pp\si.gml";
 
 // Load objects from TBAG/objects folder
-global.cc = wd + "\objects\oc\cc.gml";
+/*global.cc = wd + "\objects\oc\cc.gml";
 global.cd = wd + "\objects\oc\cd.gml";
 global.cs = wd + "\objects\oc\cs.gml";
 

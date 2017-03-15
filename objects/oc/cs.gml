@@ -1,13 +1,13 @@
-x = cp*6;
-y = li*6;
+x = cp*7;
+y = li*8;
 
 if(keyboard_check(16)){
     if(keyboard_check(16) && keyboard_check_pressed(vk_anykey)){
         if(keyboard_key>47 && keyboard_key<58){//)-(
-            tc(cs,keyboard_key);
+            tc(cp,keyboard_key);
         }
         if(keyboard_key>64 && keyboard_key<91){//A-Z
-            tc(cs,keyboard_key);
+            tc(cp,keyboard_key);
         }
 
     }
