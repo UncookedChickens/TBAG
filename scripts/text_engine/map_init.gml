@@ -25,7 +25,7 @@ file_text_close(global.map_file);
 for(i=0;i<line_index;i+=1){
 
 	for(j=0;j<max_position[i];j+=1){
-		st(string_char_at(global.map_string[i],j));
+		map_create(string_char_at(global.map_string[i],j));
     }
 
 }

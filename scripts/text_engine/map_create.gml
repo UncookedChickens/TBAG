@@ -7,15 +7,11 @@ cursor_line=argument2;
 for(l=0;l<string_length(character);l+=1){
 
     if(character>47 && character<58){
-        tc(cl,character);
+        text_create(spr_lower_chars,character,cursor_pos,cursor_line);
     }
 
     if(character>64 && character<91){
-        tc(cs,character);
-    }
-
-    if(character>96 && character<123){
-        tc(cs,character);
+        text_create(spr_upper_chars,character,cursor_pos,cursor_line);
     }
 
 }
