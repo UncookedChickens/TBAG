@@ -2,15 +2,15 @@
 <b>T</b>ext <b>B</b>ased <b>A</b>dventure <b>G</b>ame <br>
 
 ## Objects, scripts, and variables with lengthened names
-oc = obj_cursor <br>
-ot = obj_text_symbols <br>
-op = obj_player <br>
-om = obj_moveable <br><br>
+obj_cursor <br>
+obj_text <br>
+obj_player <br>
+obj_moveable <br><br>
 
-mk = scr_modifier_keys() <br>
-lr = scr_load_resources() <br>
-td = scr_text_destroy() <br>
-tc = scr_text_recreate() <br><br>
+scr_modifier_keys() <br>
+scr_load_resources() <br>
+scr_text_destroy() <br>
+scr_text_recreate() <br><br>
 
 ## Sample code
 ```gml
