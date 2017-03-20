@@ -14,15 +14,7 @@ tc = scr_text_recreate() <br><br>
 
 ## Sample code
 ```gml
-// Square brackets mean its an array variable
-
-// If the cursor_position(cp) is equal to(=) maximum_cursor_position[on the current_line]
-// and(&&)
-// current_line(li) is less than(<) maximum_line(ml)
-// and(&&)
-// current_line(li) is less than(<) 0
-
-if(cp=mp[li] && li<ml && li>0){
+if(cursor_pos=max_position[current_line] && current_line<max_line && current_line>0){
   // Action code goes in here
 }
 ```
