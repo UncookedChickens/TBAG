@@ -1,5 +1,3 @@
-y = current_line*8;
-
 if(check=1){
 
     global.map_file = file_text_open_read(work_dir + "\maps\test.txt");
