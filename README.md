@@ -1,7 +1,7 @@
 # TBAG
 <b>T</b>ext <b>B</b>ased <b>A</b>dventure <b>G</b>ame <br>
 
-## Objects, scripts, and variables with lengthened names
+## Objects, scripts, and variables
 obj_cursor <br>
 obj_text <br>
 obj_player <br>
