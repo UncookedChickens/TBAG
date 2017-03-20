@@ -18,7 +18,7 @@ if(key_press(8)){
       	current_line -= 1;
         // Checks every line for the number of instances on that line[which is just the maximum position minus 1]
         for(i=current_line;i<max_line;i+=1){
-            for(j=0;j<max_position[i];j+=1){
+            for(j=cursor_pos;j<max_position[i];j+=1){
                 text_recreate();
             }
 
@@ -27,17 +27,12 @@ if(key_press(8)){
         max_line -= 1;
 
     }
-    else if(cursor_pos=max_position[current_line] && current_line=max_line){
-      	current_line -= 1;
-    	cursor_pos=max_position[current_line];
-      	max_line -= 1;
-    }
 
 }
 // Check if the space key is pressed
 if(key_press(32)){
 
-    if(cursor_pos=max_position[current_line] && x<room_width){
+    if(cursor_pos=max_position[current_line]){
         otext[current_line,cursor_pos] = instance_create(cursor_pos*7,current_line*8,obj_text);
 
         if(instance_exists(otext[current_line,cursor_pos])){
@@ -46,22 +41,19 @@ if(key_press(32)){
         }
 
     }
-    else if(cursor_pos<max_position[current_line]){
+    else if(cursor_pos<max_position[current_line] && max_positin[current_line]>=0){
+      
+        max_position[current_line] += 1;
 
-        if(cursor_pos>=0){
-            max_position[current_line] += 1;
+        for(i=max_position[current_line];i>cursor_pos;i-=1){
+            otext[current_line,i] = instance_create(i*7,current_line*8,obj_text);
 
-            for(i=max_position[current_line];i>cursor_pos;i-=1){
-                otext[current_line,i] = instance_create(i*7,current_line*8,obj_text);
-
-                if(instance_exists(otext[current_line,i-1])){
-                    otext[current_line,i].sprite_index = otext[current_line,i-1].sprite_index;
-                    otext[current_line,i].image_index = otext[current_line,i-1].image_index;
-                }
-
-                remove_text(otext[current_line,cursor_pos-1]);
-
+            if(instance_exists(otext[current_line,i-1])){
+                otext[current_line,i].sprite_index = otext[current_line,i-1].sprite_index;
+                otext[current_line,i].image_index = otext[current_line,i-1].image_index;
             }
+
+            remove_text(otext[current_line,cursor_pos-1]);
 
         }
 
@@ -100,10 +92,9 @@ if(key_press(vk_enter)){
 if(key_press(vk_up)){
 
     if(current_line>1 && max_position[current_line-1]<max_position[current_line]){
+        current_line -= 1;
         cursor_pos = max_position[current_line-1];
     }
-
-    current_line -= 1;
 
 }
 if(key_press(vk_down)){
@@ -111,10 +102,9 @@ if(key_press(vk_down)){
   	if(current_line<max_line){
 
     	if(max_position[current_line+1]<max_position[current_line]){
+          	current_line += 1;
         	cursor_pos = max_position[current_line+1];
     	}
-
-    	current_line += 1;
 
     }
 
@@ -126,7 +116,7 @@ if(key_press(vk_left)){
     }
     else{
 
-        if(current_line>1){
+        if(current_line>1 && current_line<max_line){
             current_line -= 1;
             cursor_pos = max_position[current_line];
         }
@@ -149,3 +139,4 @@ if(key_press(vk_right)){
     }
 
 }
+
