@@ -28,8 +28,9 @@ if(cp=mp[li] && li<ml && li>0){
 ```
 
 ## Completion list
-- [x] Complete text engine[be able to type any character on the keyboard without problems]
 - [x] Tab button switches mode between editing level and testing level
+- [ ] Complete text engine[be able to type any character on the keyboard without problems]
+- [ ] Reduce the amount of internal resources to the very minimum possible
 - [ ] Fully integrate new platformer engine
 - [ ] Character customization -- be able to change the color of your character
 
