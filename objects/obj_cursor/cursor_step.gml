@@ -68,7 +68,7 @@ else if(room = rom_game){
 					}
 
 					text_create(spr_ind,ascii(global.map_string_pos[i,j]),cursor_pos,current_line);
-					show_message('--> character at position ' + j + ' ' + global.map_string_pos[i,j]);
+					show_message('--> character at position: [' + j + '] ' + global.map_string_pos[i,j]);
 
 				}
 
