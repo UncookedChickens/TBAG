@@ -14,13 +14,13 @@ if(room = rom_editor){
 		}
 
 	}
-	
+
 	else if(keyboard_check_pressed(vk_anykey)){
 
 		if(keyboard_key>47 && keyboard_key<58 || keyboard_key>64 && keyboard_key<91){//0-9 && a-z
 			text_create(spr_lower_chars,keyboard_key,cursor_pos,current_line);
 		}
-		
+
 		else if(keyboard_key>187 && keyboard_key<223){//,
 			text_create(spr_special_chars,keyboard_key-188,cursor_pos,current_line);
 		}
@@ -35,6 +35,9 @@ if(room = rom_editor){
 else if(room = rom_game){
 
 	if(read_file=1){
+		ini_open(work_dir + "\maps\test.ini");
+		max_line = ini_read_real("INIT","MAX_LINE",10);
+		ini_close();
 		global.map_file = file_text_open_read(work_dir + "\maps\test.txt");
 
 		if(!file_text_eof(global.map_file)){
@@ -42,44 +45,47 @@ else if(room = rom_game){
 			for(i=0;i<max_line;i+=1){
 				global.map_string[i] = file_text_read_string(global.map_file);
 				file_text_readln(global.map_file);
-			}
+				show_message(global.map_string[i]);
 
-			if(!file_text_eoln(global.map_file)){
+				if(!file_text_eoln(global.map_file)){
 
-				for(i=0;i<max_line;i+=1){
+						for(j=0;j<string_length(global.map_string[i]);j+=1){
+							// Create multiples of this cause there are more than one sprites
+							if(ascii(global.map_string[i])>64 && ascii(global.map_string[i])<91){//)-( && A-Z
+								//text_create(spr_upper_chars,ascii(global.map_string[i]),cursor_pos,current_line);
+								show_message(global.map_string[i]);
+							}
 
-					for(j=0;j<string_length(global.map_string[i];j+=1)){
-						// Create multiples of this cause there are more than one sprites
-						if(ascii(global.map_string[i],j)>64 && ascii(global.map_string[i],j)<91){//)-( && A-Z
-							text_create(spr_upper_chars,ascii(global.map_string[i],j),cursor_pos,current_line);
-						}
+							else if(ascii(global.map_string[i])>47 && ascii(global.map_string[i])<58 || ascii(global.map_string[i])>96 && ascii(global.map_string[i])<123){// 0-9 && a-z
+								//text_create(spr_lower_chars,ascii(global.map_string[i]),cursor_pos,current_line);
+								show_message(global.map_string[i]);
+							}
 
-						else if(ascii(global.map_string[i],j)>47 && ascii(global.map_string[i],j)<58 || ascii(global.map_string[i],j)>96 && ascii(global.map_string[i],j)<123){// 0-9 && a-z
-							text_create(spr_lower_chars,ascii(global.map_string[i],j),cursor_pos,current_line);
-						}
-						
-						else if(ascii(global.map_string[i],j)>187 && ascii(global.map_string[i],j)<223){//,
-							text_create(spr_special_chars,ascii(global.map_string[i],j)-188,cursor_pos,current_line);
+							else if(ascii(global.map_string[i])>187 && ascii(global.map_string[i])<223){//,
+								//text_create(spr_special_chars,ascii(global.map_string[i])-188,cursor_pos,current_line);
+								show_message(global.map_string[i]);
+							}
+
 						}
 
 					}
 
 				}
 
+				current_line += 1;
+
 			}
 
-		}
-		
-		check = 0
-	
+		read_file = 0;
+
 	}
 
 	file_text_close(global.map_file);
 
 }
-                    
+
 else if(room = rom_load_map){
-	
+
 	// ds_list_create
 	// ds_list_destroy
 	// ds_list_clear
@@ -96,12 +102,12 @@ else if(room = rom_load_map){
 	// ds_list_copy
 	// ds_list_read
 	// ds_list_write
-  
+
 	maps_list = ds_list_create();
 	map_file = file_find_first('maps\*.txt', fa_directory );
 
 	while (map_file != ''){
-		
+
 		ds_list_add(maps_list, map_file);
 		show_debug_message('Adding -'+ map_file +'- to maps_list');
 		map_file = file_find_next();
