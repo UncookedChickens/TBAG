@@ -35,10 +35,10 @@ if(room = rom_editor){
 else if(room = rom_game){
 
 	if(read_file=1){
-		ini_open(work_dir + "\maps\test.ini");
+		ini_open(work_dir + "maps\test.ini");
 		max_line = ini_read_real("INIT","MAX_LINE",10);
 		ini_close();
-		global.map_file = file_text_open_read(work_dir + "\maps\test.txt");
+		global.map_file = file_text_open_read(work_dir + "maps\test.txt");
 
 		if(!file_text_eof(global.map_file)){
 
@@ -48,30 +48,35 @@ else if(room = rom_game){
 				show_message(global.map_string[i]);
 				// Add string_char_at
 
-					for(j=0;j<string_length(global.map_string[i]);j+=1){
-						// Create multiples of this cause there are more than one sprites
-						if(ascii(global.map_string[i])>64 && ascii(global.map_string[i])<91){//)-( && A-Z
-								//text_create(spr_upper_chars,ascii(global.map_string[i]),cursor_pos,current_line);
-							show_message(global.map_string[i]);
-						}
+				for(j=0;j<string_length(global.map_string[i]);j+=1){
 
-						else if(ascii(global.map_string[i])>47 && ascii(global.map_string[i])<58 || ascii(global.map_string[i])>96 && ascii(global.map_string[i])<123){// 0-9 && a-z
-								//text_create(spr_lower_chars,ascii(global.map_string[i]),cursor_pos,current_line);
-							show_message(global.map_string[i]);
-						}
-
-						else if(ascii(global.map_string[i])>187 && ascii(global.map_string[i])<223){//,
-								//text_create(spr_special_chars,ascii(global.map_string[i])-188,cursor_pos,current_line);
-							show_message(global.map_string[i]);
-						}
-
+					global.map_string_pos[i,j] = string_char_at(global.map_file,j);
+					// Create multiples of this cause there are more than one sprites
+					if(ascii(global.map_string[i])>64 && ascii(global.map_string[i])<91){// A-Z
+						spr_ind = spr_upper_chars;
 					}
+
+					else if(ascii(global.map_string[i])>47 && ascii(global.map_string[i])<58){// 0-9
+						spr_ind = spr_lower_chars;
+					}
+					else if(ascii(global.map_string[i])>96 && ascii(global.map_string[i])<123){// a-z
+						spr_ind = spr_lower_chars;
+					}
+
+					else if(ascii(global.map_string[i])>187 && ascii(global.map_string[i])<223){//,
+						spr_ind = spr_special_chars;
+					}
+
+					text_create(spr_ind,ascii(global.map_string_pos[i,j]),cursor_pos,current_line);
+					show_message('--> character at position ' + j + ' ' + global.map_string_pos[i,j]);
 
 				}
 
-				current_line += 1;
-
 			}
+
+			current_line += 1;
+
+		}
 
 		read_file = 0;
 
