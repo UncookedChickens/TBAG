@@ -62,3 +62,34 @@ else if(room = rom_game){
 	file_text_close(global.map_file);
 
 }
+                    
+else if(room = rom_load_map){
+	
+	// ds_list_create
+	// ds_list_destroy
+	// ds_list_clear
+	// ds_list_empty
+	// ds_list_size
+	// ds_list_add
+	// ds_list_delete
+	// ds_list_find_index
+	// ds_list_find_value
+	// ds_list_insert
+	// ds_list_replace
+	// ds_list_shuffle
+	// ds_list_sort
+	// ds_list_copy
+	// ds_list_read
+	// ds_list_write
+  
+	maps_list = ds_list_create();
+	map_file = file_find_first('maps\*.txt', fa_directory );
+
+	while (map_file != ''){
+		
+		ds_list_add(maps_list, map_file);
+		show_debug_message('Adding -'+ map_file +'- to maps_list');
+		map_file = file_find_next();
+	}
+
+}
