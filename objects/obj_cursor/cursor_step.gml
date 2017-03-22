@@ -35,16 +35,15 @@ if(room = rom_editor){
 else if(room = rom_game){
 
 	if(read_file=1){
-		ini_open(work_dir + "maps\test.ini");
+		/*ini_open(work_dir + "maps\test.ini");
 		max_line = ini_read_real("INIT","MAX_LINE",10);
-		ini_close();
+		ini_close();*/
 		global.map_file = file_text_open_read(work_dir + "maps\test.txt");
 
-		if(!file_text_eof(global.map_file)){
+		while(!file_text_eof(global.map_file)){
 
-			for(i=0;i<max_line;i+=1){
-				global.map_string[i] = file_text_read_string(global.map_file);
-				file_text_readln(global.map_file);
+				//global.map_string[i] = file_text_read_string(global.map_file);
+				global.map_string[i] = file_text_readln(global.map_file);
 				show_message(global.map_string[i]);
 				// Add string_char_at
 
@@ -71,6 +70,8 @@ else if(room = rom_game){
 					show_message('--> character at position: [' + j + '] ' + global.map_string_pos[i,j]);
 
 				}
+
+				line_index += 1;
 
 			}
 
