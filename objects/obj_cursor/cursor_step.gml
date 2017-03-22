@@ -39,35 +39,36 @@ else if(room = rom_game){
 		max_line = ini_read_real("INIT","MAX_LINE",10);
 		ini_close();*/
 		global.map_file = file_text_open_read(work_dir + "maps\test.txt");
+		line_index = 0;
 
 		while(!file_text_eof(global.map_file)){
 
 				//global.map_string[i] = file_text_read_string(global.map_file);
-				global.map_string[i] = file_text_readln(global.map_file);
-				show_message(global.map_string[i]);
+				global.map_string[line_index] = file_text_readln(global.map_file);
+				show_message(global.map_string[line_index]);
 				// Add string_char_at
 
-				for(j=0;j<string_length(global.map_string[i]);j+=1){
+				for(j=0;j<string_length(global.map_string[line_index]);j+=1){
 
-					global.map_string_pos[i,j] = string_char_at(global.map_file,j);
+					global.map_string_pos[line_index,j] = string_char_at(global.map_file,j);
 					// Create multiples of this cause there are more than one sprites
-					if(ascii(global.map_string[i])>64 && ascii(global.map_string[i])<91){// A-Z
+					if(ascii(global.map_string[line_index])>64 && ascii(global.map_string[line_index])<91){// A-Z
 						spr_ind = spr_upper_chars;
 					}
 
-					else if(ascii(global.map_string[i])>47 && ascii(global.map_string[i])<58){// 0-9
+					else if(ascii(global.map_string[line_index])>47 && ascii(global.map_string[line_index])<58){// 0-9
 						spr_ind = spr_lower_chars;
 					}
-					else if(ascii(global.map_string[i])>96 && ascii(global.map_string[i])<123){// a-z
+					else if(ascii(global.map_string[line_index])>96 && ascii(global.map_string[line_index])<123){// a-z
 						spr_ind = spr_lower_chars;
 					}
 
-					else if(ascii(global.map_string[i])>187 && ascii(global.map_string[i])<223){//,
+					else if(ascii(global.map_string[line_index])>187 && ascii(global.map_string[line_index])<223){//,
 						spr_ind = spr_special_chars;
 					}
 
 					text_create(spr_ind,ascii(global.map_string_pos[i,j]),cursor_pos,current_line);
-					show_message('--> character at position: [' + j + '] ' + global.map_string_pos[i,j]);
+					show_message('--> character at position: [' + j + '] ' + global.map_string_pos[line_index,j]);
 
 				}
 
