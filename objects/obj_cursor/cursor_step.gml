@@ -35,9 +35,7 @@ if(room = rom_editor){
 else if(room = rom_game){
 
 	if(read_file=1){
-		/*ini_open(work_dir + "maps\test.ini");
-		max_line = ini_read_real("INIT","MAX_LINE",10);
-		ini_close();*/
+		
 		global.map_file = file_text_open_read(work_dir + "\maps\test.txt");
 		line_index = 0;
 
@@ -45,32 +43,31 @@ else if(room = rom_game){
 
 				global.map_string[line_index] = file_text_read_string(global.map_file);
 				file_text_readln(global.map_file);
-				//show_message('--> ' + global.map_string[line_index]);
-				// Add string_char_at
 
 				for(j=1;j<=string_length(global.map_string[line_index]);j+=1){
 
 					global.map_string_pos[line_index,j] = string_char_at(global.map_string[line_index],j);
-					//show_message(global.map_string_pos[line_index,j]);
-					// Create multiples of this cause there are more than one sprites
-					if(ascii(global.map_string[line_index])>64 && ascii(global.map_string[line_index])<91){// A-Z
+					
+					if(ascii(global.map_string_pos[line_index,j])>64 && ascii(global.map_string_pos[line_index,j])<91){// A-Z
 						spr_ind = spr_upper_chars;
 					}
 
-					else if(ascii(global.map_string[line_index])>47 && ascii(global.map_string[line_index])<58){// 0-9
+					else if(ascii(global.map_string_pos[line_index,j])>47 && ascii(global.map_string_pos[line_index,j])<58){// 0-9
 						spr_ind = spr_lower_chars;
 					}
-					else if(ascii(global.map_string[line_index])>96 && ascii(global.map_string[line_index])<123){// a-z
+					else if(ascii(global.map_string_pos[line_index,j])>96 && ascii(global.map_string_pos[line_index,j])<123){// a-z
 						spr_ind = spr_lower_chars;
 					}
 
-					else if(ascii(global.map_string[line_index])>187 && ascii(global.map_string[line_index])<223){//,
+					else if(ascii(global.map_string_pos[line_index,j])>187 && ascii(global.map_string_pos[line_index,j])<223){//,
 						spr_ind = spr_special_chars;
 					}
 
 					text_create(spr_ind,ascii(global.map_string_pos[line_index,j]),cursor_pos,current_line);
-					// show_message('--> character at position: [' + ascii(j) + '] ' + global.map_string_pos[line_index,j]);
-					show_message(ascii(j));
+					
+					// For debugging purposes
+					char_ind = ascii(j);
+					show_message('--> char at pos: [' + char_ind + '] ' + global.map_string_pos[line_index,j]);
 
 				}
 
@@ -88,7 +85,7 @@ else if(room = rom_game){
 
 file_text_close(global.map_file);
 
-/*if(room = rom_load_map){
+if(room = rom_load_map){
 
 	// ds_list_create
 	// ds_list_destroy
@@ -106,15 +103,18 @@ file_text_close(global.map_file);
 	// ds_list_copy
 	// ds_list_read
 	// ds_list_write
-
+  
+	//maps_list[0] = filename_name(file_find_first(work_dir + "\maps\*.txt", 0));
+  
 	maps_list = ds_list_create();
-	map_file = file_find_first('maps\*.txt', fa_directory );
-
-	while (map_file != ''){
-
-		ds_list_add(maps_list, map_file);
-		show_debug_message('Adding -'+ map_file +'- to maps_list');
-		map_file = file_find_next();
-	}
+	map_file_list = filename_name(file_find_first(work_dir + "\maps\*.txt", 0));
+  
+	for(i=0;i<15;i+=1){
+      
+		//maps_list[i] = filename_name(file_find_next());
+		map_file_list = filename_name(file_find_next());
+    }
+  
+	ds_list_sort(maps_list,true);
 
 }
