@@ -38,19 +38,20 @@ else if(room = rom_game){
 		/*ini_open(work_dir + "maps\test.ini");
 		max_line = ini_read_real("INIT","MAX_LINE",10);
 		ini_close();*/
-		global.map_file = file_text_open_read(work_dir + "maps\test.txt");
+		global.map_file = file_text_open_read(work_dir + "\maps\test.txt");
 		line_index = 0;
 
 		while(!file_text_eof(global.map_file)){
 
-				//global.map_string[i] = file_text_read_string(global.map_file);
-				global.map_string[line_index] = file_text_readln(global.map_file);
-				show_message(global.map_string[line_index]);
+				global.map_string[line_index] = file_text_read_string(global.map_file);
+				file_text_readln(global.map_file);
+				//show_message('--> ' + global.map_string[line_index]);
 				// Add string_char_at
 
-				for(j=0;j<string_length(global.map_string[line_index]);j+=1){
+				for(j=1;j<=string_length(global.map_string[line_index]);j+=1){
 
-					global.map_string_pos[line_index,j] = string_char_at(global.map_file,j);
+					global.map_string_pos[line_index,j] = string_char_at(global.map_string[line_index],j);
+					//show_message(global.map_string_pos[line_index,j]);
 					// Create multiples of this cause there are more than one sprites
 					if(ascii(global.map_string[line_index])>64 && ascii(global.map_string[line_index])<91){// A-Z
 						spr_ind = spr_upper_chars;
@@ -67,28 +68,27 @@ else if(room = rom_game){
 						spr_ind = spr_special_chars;
 					}
 
-					text_create(spr_ind,ascii(global.map_string_pos[i,j]),cursor_pos,current_line);
-					show_message('--> character at position: [' + j + '] ' + global.map_string_pos[line_index,j]);
+					text_create(spr_ind,ascii(global.map_string_pos[line_index,j]),cursor_pos,current_line);
+					// show_message('--> character at position: [' + ascii(j) + '] ' + global.map_string_pos[line_index,j]);
+					show_message(ascii(j));
 
 				}
 
-				line_index += 1;
-
-			}
-
-			current_line += 1;
+			line_index += 1;
 
 		}
 
-		read_file = 0;
+		current_line += 1;
 
 	}
 
-	file_text_close(global.map_file);
+	read_file = 0;
 
 }
 
-else if(room = rom_load_map){
+file_text_close(global.map_file);
+
+/*if(room = rom_load_map){
 
 	// ds_list_create
 	// ds_list_destroy

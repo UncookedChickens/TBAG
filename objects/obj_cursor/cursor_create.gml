@@ -36,11 +36,12 @@ work_dir = working_directory;
 
 for(i=0;i<100;i+=1){
 
-    for(j=0;j<room_width/7;j+=1){
+    for(j=0;j<100;j+=1){
 
       	otext[i,j] = 0;
         max_position[i] = 0;
 		global.map_string[i] = "";
+        global.map_string_pos[i,j] = "";
     }
 
 }
