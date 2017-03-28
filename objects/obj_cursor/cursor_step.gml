@@ -63,11 +63,10 @@ else if(room = rom_game){
 						spr_ind = spr_special_chars;
 					}
 
-					text_create(spr_ind,ascii(global.map_string_pos[line_index,j]),cursor_pos,current_line);
+					text_create(spr_ind,ascii(global.map_string_pos[line_index,j]),cursor_pos,line_index);
 					
 					// For debugging purposes
-					char_ind = ascii(j);
-					show_message('--> char at pos: [' + char_ind + '] ' + global.map_string_pos[line_index,j]);
+					show_message('--> char at pos: [' + j + '] ' + global.map_string_pos[line_index,j]);
 
 				}
 
