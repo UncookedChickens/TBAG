@@ -21,11 +21,11 @@ if(cursor_pos=max_position[current_line] && current_line<max_line && current_lin
 
 ## Completion list
 - [x] Tab button switches mode between editing level and testing level
+- [x] Complete the FTC[File to Text Converter]
+- [x] Reduce the amount of internal resources to the very minimum possible
 - [ ] Complete text engine[be able to type any character on the keyboard without problems]
-- [ ] Reduce the amount of internal resources to the very minimum possible
 - [ ] Fully integrate new platformer engine
 - [ ] Character customization -- be able to change the color of your character
-- [ ] Complete the FTC[File to Text Converter]
 
 ## Preview of the game in editor mode
 ![Screenshot of game](https://github.com/UncookedChickens/uncookedchickens.github.io/blob/master/img/TBAG_splash.png?raw=true)
