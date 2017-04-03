@@ -37,3 +37,5 @@ while(!file_text_eof(global.map_file)){
 	cursor_pos = 0;
 
 }
+
+file_text_close(global.map_file);
