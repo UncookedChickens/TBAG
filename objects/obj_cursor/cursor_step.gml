@@ -44,8 +44,6 @@ else if(room = rom_game){
 
 }
 
-file_text_close(global.map_file);
-
 if(room = rom_load_map){
 
 	// ds_list_create
