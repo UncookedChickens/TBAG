@@ -6,7 +6,7 @@ if(key_press(8)){
     // Check that the object it's trying to delete is behind the cursor
     if(max_position[current_line]>0 && cursor_pos=max_position[current_line]){
         // Then if all those values are checked, then delete the object
-        remove_text(otext[current_line,cursor_pos-1]);
+        text_modify(0,0,0,otext[current_line,cursor_pos-1],0,0);
         // Takes away one from the cursors position
         // And prevents you from moving back to that space without typing
         cursor_pos -= 1;
@@ -19,7 +19,7 @@ if(key_press(8)){
         // Checks every line for the number of instances on that line[which is just the maximum position minus 1]
         for(i=current_line;i<max_line;i+=1){
             for(j=cursor_pos;j<max_position[i];j+=1){
-                text_recreate();
+                text_modify(1,j,i,0,0,0);
             }
 
         }
@@ -42,7 +42,7 @@ if(key_press(32)){
 
     }
     else if(cursor_pos<max_position[current_line] && max_positin[current_line]>=0){
-      
+
         max_position[current_line] += 1;
 
         for(i=max_position[current_line];i>cursor_pos;i-=1){
@@ -53,7 +53,7 @@ if(key_press(32)){
                 otext[current_line,i].image_index = otext[current_line,i-1].image_index;
             }
 
-            remove_text(otext[current_line,cursor_pos-1]);
+            text_modify(0,0,0,otext[current_line,cursor_pos-1],0,0);
 
         }
 
@@ -65,7 +65,7 @@ if(key_press(32)){
 if(key_press(vk_tab)){
 	switch(global.mode){
     	case 0:global.mode=1 instance_create(start_xpos,start_ypos,obj_player);break;
-        case 1:global.mode=0 remove_text(obj_player);break;
+        case 1:global.mode=0 text_modify(0,0,0,obj_player,0,0);break;
     }
 
 }
@@ -139,4 +139,3 @@ if(key_press(vk_right)){
     }
 
 }
-
