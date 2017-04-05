@@ -12,6 +12,7 @@ global.smod_keys = work_dir + "\scripts\text_engine\mod_keys.gml";
 global.stext_recreate = work_dir + "\scripts\text_engine\text_recreate.gml";
 global.smap_init = work_dir + "\scripts\text_engine\map_init.gml";
 global.smap_create = work_dir + "\scripts\text_engine\map_create.gml";
+global.sinit_key_defs = work_dir + "\scripts\text_engine\init_key_defs.gml";
 
 global.scheck_below = work_dir + "\scripts\platform_physics\check_below.gml";
 global.smove_to_room = work_dir + "\scripts\platform_physics\move_to_room.gml";

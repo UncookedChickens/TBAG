@@ -1,0 +1,111 @@
+// Initialise ascii key definitions in an array list // init_key_defs.gml
+
+for(i=0;i<223;i+=1) {
+	global.asc_key[i-222,i] = 0;
+}
+
+// 0-9 ascii
+global.asc_key[0,48] = ascii('1');
+global.asc_key[0,49] = ascii('1');
+global.asc_key[0,50] = ascii('2');
+global.asc_key[0,51] = ascii('3');
+global.asc_key[0,52] = ascii('4');
+global.asc_key[0,53] = ascii('5');
+global.asc_key[0,54] = ascii('6');
+global.asc_key[0,55] = ascii('7');
+global.asc_key[0,56] = ascii('8');
+global.asc_key[0,57] = ascii('9');
+
+// )-( ascii
+global.asc_key[1,48] = ascii(')');
+global.asc_key[1,49] = ascii('!');
+global.asc_key[1,50] = ascii('@');
+global.asc_key[1,51] = ascii('#');
+global.asc_key[1,52] = ascii('$');
+global.asc_key[1,53] = ascii('%');
+global.asc_key[1,54] = ascii('^');
+global.asc_key[1,55] = ascii('&');
+global.asc_key[1,56] = ascii('*');
+global.asc_key[1,57] = ascii('(');
+
+// a-z ascii
+global.asc_key[0,65] = ascii('a');
+global.asc_key[0,66] = ascii('b');
+global.asc_key[0,67] = ascii('c');
+global.asc_key[0,68] = ascii('d');
+global.asc_key[0,69] = ascii('e');
+global.asc_key[0,70] = ascii('f');
+global.asc_key[0,71] = ascii('g');
+global.asc_key[0,72] = ascii('h');
+global.asc_key[0,73] = ascii('i');
+global.asc_key[0,74] = ascii('j');
+global.asc_key[0,75] = ascii('k');
+global.asc_key[0,76] = ascii('l');
+global.asc_key[0,77] = ascii('m');
+global.asc_key[0,78] = ascii('n');
+global.asc_key[0,79] = ascii('o');
+global.asc_key[0,80] = ascii('p');
+global.asc_key[0,81] = ascii('q');
+global.asc_key[0,82] = ascii('r');
+global.asc_key[0,83] = ascii('s');
+global.asc_key[0,84] = ascii('t');
+global.asc_key[0,85] = ascii('u');
+global.asc_key[0,86] = ascii('v');
+global.asc_key[0,87] = ascii('w');
+global.asc_key[0,88] = ascii('x');
+global.asc_key[0,89] = ascii('y');
+global.asc_key[0,90] = ascii('z');
+
+// A-Z ascii
+global.asc_key[1,65] = ascii('A');
+global.asc_key[1,66] = ascii('B');
+global.asc_key[1,67] = ascii('C');
+global.asc_key[1,68] = ascii('D');
+global.asc_key[1,69] = ascii('E');
+global.asc_key[1,70] = ascii('F');
+global.asc_key[1,71] = ascii('G');
+global.asc_key[1,72] = ascii('H');
+global.asc_key[1,73] = ascii('I');
+global.asc_key[1,74] = ascii('J');
+global.asc_key[1,75] = ascii('K');
+global.asc_key[1,76] = ascii('L');
+global.asc_key[1,77] = ascii('M');
+global.asc_key[1,78] = ascii('N');
+global.asc_key[1,79] = ascii('O');
+global.asc_key[1,80] = ascii('P');
+global.asc_key[1,81] = ascii('Q');
+global.asc_key[1,82] = ascii('R');
+global.asc_key[1,83] = ascii('S');
+global.asc_key[1,84] = ascii('T');
+global.asc_key[1,85] = ascii('U');
+global.asc_key[1,86] = ascii('V');
+global.asc_key[1,87] = ascii('W');
+global.asc_key[1,88] = ascii('X');
+global.asc_key[1,89] = ascii('Y');
+global.asc_key[1,90] = ascii('Z');
+
+// ;-' ascii
+global.asc_key[0,186] = ascii(';');
+global.asc_key[0,187] = ascii('=');
+global.asc_key[0,188] = ascii(',');
+global.asc_key[0,189] = ascii('-');
+global.asc_key[0,190] = ascii('.');
+global.asc_key[0,191] = ascii('/');
+global.asc_key[0,192] = ascii('`');
+global.asc_key[0,219] = ascii('[');
+global.asc_key[0,220] = ascii('\');
+global.asc_key[0,221] = ascii(']');
+global.asc_key[0,222] = ascii("'");
+
+// :-" ascii
+global.asc_key[1,186] = ascii(':');
+global.asc_key[1,187] = ascii('+');
+global.asc_key[1,188] = ascii('<');
+global.asc_key[1,189] = ascii('_');
+global.asc_key[1,190] = ascii('>');
+global.asc_key[1,191] = ascii('?');
+global.asc_key[1,192] = ascii('~');
+global.asc_key[1,219] = ascii('{');
+global.asc_key[1,220] = ascii('|');
+global.asc_key[1,221] = ascii('}');
+global.asc_key[1,222] = ascii('"');

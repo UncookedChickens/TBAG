@@ -9,8 +9,8 @@ if(room = rom_editor){
 			text_modify(2,cursor_pos,current_line,0,spr_upper_chars,keyboard_key);
 		}
 
-		else if(keyboard_key>187 && keyboard_key<223){//,
-			text_modify(2,cursor_pos,current_line,0,spr_upper_chars,keyboard_key-153);
+		else if(keyboard_key>185 && keyboard_key<223){//:-"
+			text_modify(2,cursor_pos,current_line,0,spr_special_chars,keyboard_key-149);
 		}
 
 	}
@@ -21,8 +21,8 @@ if(room = rom_editor){
 			text_modify(2,cursor_pos,current_line,0,spr_lower_chars,keyboard_key);
 		}
 
-		else if(keyboard_key>187 && keyboard_key<223){//,
-			text_modify(2,cursor_pos,current_line,0,spr_lower_chars,keyboard_key-188);
+		else if(keyboard_key>185 && keyboard_key<223){//;-'
+			text_modify(2,cursor_pos,current_line,0,spr_special_chars,keyboard_key-186);
 		}
 
 		else{
