@@ -10,8 +10,8 @@ while(!file_text_eof(global.map_file)) {
 
 		global.map_string_pos[line_index,j] = string_char_at(global.map_string[line_index],j);
 
-		text_create(spr_all_chars,ascii(global.map_string_pos[line_index,j]),cursor_pos,line_index);
-					
+		text_modify(2,cursor_pos,line_index,0,spr_all_chars,ascii(global.map_string_pos[line_index,j]));
+
 		// For debugging purposes
 		// show_message('--> char at pos: [' + j + '] ' + global.map_string_pos[line_index,j]);
 

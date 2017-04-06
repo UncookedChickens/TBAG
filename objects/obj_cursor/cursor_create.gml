@@ -31,6 +31,7 @@ global.map_string[0] = "";
 global.map_string_pos[0,0] = "";
 
 global.mode = 0;
+global.gamemode = true;
 
 work_dir = working_directory;
 

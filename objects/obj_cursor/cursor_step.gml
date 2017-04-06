@@ -3,33 +3,29 @@ y = current_line*8;
 
 if(room = rom_editor) {
 
-	if(keyboard_check(16) && key_press(vk_anykey)) {
-		if(keyboard_key>40 && keyboard_key<256) {
-			text_modify(2,cursor_pos,current_line,0,spr_all_chars,global.asc_key[1,keyboard_key]);
+	if(global.gamemode) {
+		if(keyboard_check(16) && key_press(vk_anykey)) {
+			if(keyboard_key>40 && keyboard_key<256) {
+				text_modify(2,cursor_pos,current_line,0,spr_all_chars,global.asc_key[1,keyboard_key]);
+			}
+
+		}
+
+		else if(key_press(vk_anykey)) {
+			if(keyboard_key>40 && keyboard_key<256) {
+				text_modify(2,cursor_pos,current_line,0,spr_all_chars,global.asc_key[0,keyboard_key]);
+			}
+			else {
+				mod_keys();
+			}
+
 		}
 
 	}
 
-	else if(key_press(vk_anykey)) {
-		if(keyboard_key>40 && keyboard_key<256) {
-			text_modify(2,cursor_pos,current_line,0,spr_all_chars,global.asc_key[0,keyboard_key]);
-		}
-		else {
-			mod_keys();
-		}
-
-	}
-
-}
-else if(room = rom_game) {
-
-	if(read_file=1) {
-
+	else if(global.gamemode==false && read_file==true) {
 		map_create();
-
 	}
-
-	read_file = 0;
 
 }
 
