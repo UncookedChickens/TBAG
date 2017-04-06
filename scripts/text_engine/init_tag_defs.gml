@@ -18,7 +18,7 @@ global.tag[1,1] = "</line:{n}>";
 global.tag[0,2] = "<space:{n}>";
 global.tag[1,2] = "</space:{n}>";
 
-global.tag[0,3] = "<rm_width:{s}/>";
+global.tag[0,3] = "<rm_width:{n}/>";
 
 global.tag[0,4] = "<new_map:{s}/>";
 global.tag[0,5] = "<load_map:{s}/>";
