@@ -34,6 +34,8 @@ global.mode = 0;
 
 work_dir = working_directory;
 
+init_key_defs();
+
 for(i=0;i<100;i+=1){
 
     for(j=0;j<100;j+=1){

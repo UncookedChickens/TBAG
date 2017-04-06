@@ -5,7 +5,7 @@ for(i=0;i<223;i+=1) {
 }
 
 // 0-9 ascii
-global.asc_key[0,48] = ascii('1');
+global.asc_key[0,48] = ascii('0');
 global.asc_key[0,49] = ascii('1');
 global.asc_key[0,50] = ascii('2');
 global.asc_key[0,51] = ascii('3');
