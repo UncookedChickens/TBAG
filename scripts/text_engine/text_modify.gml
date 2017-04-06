@@ -1,4 +1,4 @@
-var cur_pos, cur_line, action;
+var cur_pos, cur_line, action, inst_des, spr_ind, img_ind;
 
 action = argument0;
 cur_pos = argument1;
@@ -25,13 +25,13 @@ else if(action==1) {
 	if(instance_exists(otext[line_below,cur_pos])){
 
 		otext[cur_line,cur_pos] = instance_create(cur_pos*7,cur_line*8,obj_text);
-    	otext[cur_line,cur_pos].sprite_index = otext[line_below,cur_pos].sprite_index;
-    	otext[cur_line,cur_pos].image_index = otext[line_below,cur_pos].image_index;
+    	otext[cur_line,cur_pos].sprite_index = otext[cur_line+1,cur_pos].sprite_index;
+    	otext[cur_line,cur_pos].image_index = otext[cur_line+1,cur_pos].image_index;
 
     	max_position[cur_line] += 1;
-    	max_position[line_below] -= 1;
+    	max_position[cur_line+1] -= 1;
 
-    	with(otext[line_below,cur_pos]){
+    	with(otext[cur_line+1,cur_pos]){
         	instance_destroy();
     	}
 
@@ -52,6 +52,6 @@ else if(action==2) {
 
 	// Move the cursor infront of the new text object[pc[cursor_line,cursor_pos]], then adds to the maximum position
 	cursor_pos += 1;
-	max_position[current_line] += 1;
+	max_position[cur_line] += 1;
 
 }

@@ -1,40 +1,26 @@
 x = cursor_pos*7;
 y = current_line*8;
 
-if(room = rom_editor){
+if(room = rom_editor) {
 
-	if(keyboard_check(16) && key_press(vk_anykey)){
-
-		if(keyboard_key>47 && keyboard_key<58 || keyboard_key>64 && keyboard_key<91){//)-( && A-Z
-			text_modify(2,cursor_pos,current_line,0,spr_upper_chars,keyboard_key);
-		}
-
-		else if(keyboard_key>185 && keyboard_key<223){//:-"
-			text_modify(2,cursor_pos,current_line,0,spr_special_chars,keyboard_key-149);
-		}
-
+	if(keyboard_check(16) && key_press(vk_anykey)) {
+		text_modify(2,cursor_pos,current_line,0,spr_all_chars,global.asc_key[1,keyboard_key]);
 	}
 
-	else if(key_press(vk_anykey)){
-
-		if(keyboard_key>47 && keyboard_key<58 || keyboard_key>64 && keyboard_key<91){//0-9 && a-z
-			text_modify(2,cursor_pos,current_line,0,spr_lower_chars,keyboard_key);
+	else if(key_press(vk_anykey)) {
+		if(keyboard_key>32 && keyboard_key<127) {
+			text_modify(2,cursor_pos,current_line,0,spr_all_chars,global.asc_key[0,keyboard_key]);
 		}
-
-		else if(keyboard_key>185 && keyboard_key<223){//;-'
-			text_modify(2,cursor_pos,current_line,0,spr_special_chars,keyboard_key-186);
-		}
-
-		else{
+		else {
 			mod_keys();
 		}
 
 	}
 
 }
-else if(room = rom_game){
+else if(room = rom_game) {
 
-	if(read_file=1){
+	if(read_file=1) {
 
 		map_create();
 
@@ -44,7 +30,7 @@ else if(room = rom_game){
 
 }
 
-if(room = rom_load_map){
+if(room = rom_load_map) {
 
 	// ds_list_create
 	// ds_list_destroy
@@ -68,7 +54,7 @@ if(room = rom_load_map){
 	maps_list = ds_list_create();
 	map_file_list = filename_name(file_find_first(work_dir + "\maps\*.txt", 0));
 
-	for(i=0;i<15;i+=1){
+	for(i=0;i<15;i+=1) {
 
 		//maps_list[i] = filename_name(file_find_next());
 		map_file_list = filename_name(file_find_next());
