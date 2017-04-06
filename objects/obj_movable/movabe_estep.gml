@@ -50,7 +50,7 @@ if (co)
     event_perform(ev_other, ev_user0);
 
 if (sl)
-    hor_speed = ap(hor_speed, 0, SS);
+    hor_speed = approach(hor_speed, 0, SS);
 
 co = false;
 repeat (abs(v))
@@ -65,7 +65,7 @@ repeat (abs(v))
         else
             y += sign(v);
     }
-    else if (cb())
+    else if (check_below())
     {
         co = true;
         break;

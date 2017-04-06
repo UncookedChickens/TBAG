@@ -1,7 +1,7 @@
 // Initialise ascii key definitions in an array list // init_key_defs.gml
 
 for(i=0;i<223;i+=1) {
-	global.asc_key[i-222,i] = 0;
+	global.asc_key[i+1-i,i] = 0;
 }
 
 // 0-9 ascii

@@ -15,23 +15,23 @@ if(keyboard_check_direct(key_right)){
 
     //First add frtion if currently running left
     if (hor_speed < 0)
-        hor_speed = ap( hor_speed, 0, fric );
+        hor_speed = approach( hor_speed, 0, fric );
 
-    hor_speed = ap( hor_speed, MH, acceleration );
+    hor_speed = approach( hor_speed, MH, acceleration );
 
 } else if(keyboard_check_direct(key_left)){
     //Running left
 
     //First add frtion if currently running right
     if (hor_speed > 0)
-        hor_speed = ap( hor_speed, 0, fric );
+        hor_speed = approach( hor_speed, 0, fric );
 
-    hor_speed = ap( hor_speed, -MH, acceleration );
+    hor_speed = approach( hor_speed, -MH, acceleration );
 
 } else {
     //Stopping
 
-    hor_speed = ap(hor_speed, 0, fric);
+    hor_speed = approach(hor_speed, 0, fric);
 
 }
 
@@ -47,7 +47,7 @@ if (on_ground) {
 } else {
 
     //Gravity
-    ver_speed = ap(ver_speed, MV, SG);
+    ver_speed = approach(ver_speed, MV, SG);
 
     //Double jumping
     if (keyboard_check_pressed( key_jump ) && check_jump) {

@@ -4,11 +4,14 @@ y = current_line*8;
 if(room = rom_editor) {
 
 	if(keyboard_check(16) && key_press(vk_anykey)) {
-		text_modify(2,cursor_pos,current_line,0,spr_all_chars,global.asc_key[1,keyboard_key]);
+		if(keyboard_key>40 && keyboard_key<256) {
+			text_modify(2,cursor_pos,current_line,0,spr_all_chars,global.asc_key[1,keyboard_key]);
+		}
+
 	}
 
 	else if(key_press(vk_anykey)) {
-		if(keyboard_key>32 && keyboard_key<127) {
+		if(keyboard_key>40 && keyboard_key<256) {
 			text_modify(2,cursor_pos,current_line,0,spr_all_chars,global.asc_key[0,keyboard_key]);
 		}
 		else {
