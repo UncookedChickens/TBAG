@@ -4,7 +4,7 @@
 work_dir = working_directory;
 
 // Load sprites from TBAG/sprites folder
-//global.
+global.sall_chars = sprite_add_sprite(work_dir + "\spr_all_chars.gmspr");
 //global.
 
 // Load scripts from TBAG/scripts folder

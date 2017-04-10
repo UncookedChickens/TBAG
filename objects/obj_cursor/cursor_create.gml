@@ -25,13 +25,13 @@ end_xpos = 0;
 end_ypos = 0;
 
 spr_ind = 0;
-read_file = 1;
+read_file = true;
 global.map_file = "";
 global.map_string[0] = "";
 global.map_string_pos[0,0] = "";
 
 global.mode = 0;
-global.gamemode = true;
+global.gamemode = false;
 
 work_dir = working_directory;
 
@@ -42,6 +42,7 @@ for(i=0;i<100;i+=1){
     for(j=0;j<100;j+=1){
 
       	otext[i,j] = 0;
+        otext[i,j].link = 0;
         max_position[i] = 0;
 		global.map_string[i] = "";
         global.map_string_pos[i,j] = "";

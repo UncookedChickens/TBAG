@@ -51,7 +51,5 @@ else if(action==2) {
 	otext[cur_line,cur_pos].image_index = img_ind;
 
 	// Move the cursor infront of the new text object[pc[cursor_line,cursor_pos]], then adds to the maximum position
-	cursor_pos += 1;
-	max_position[cur_line] += 1;
 
 }

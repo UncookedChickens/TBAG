@@ -89,22 +89,19 @@ if(key_press(vk_enter)){
 
 }
 
-if(key_press(vk_up)){
+if(key_press(vk_up)) {
 
-    if(current_line>1 && max_position[current_line-1]<max_position[current_line]){
+    if(current_line>1) {
         current_line -= 1;
-        cursor_pos = max_position[current_line-1];
+        // cursor_pos = max_position[current_line-1];
     }
 
 }
-if(key_press(vk_down)){
+if(key_press(vk_down)) {
 
-  	if(current_line<max_line){
+  	if(current_line<max_line) {
 
-    	if(max_position[current_line+1]<max_position[current_line]){
-          	current_line += 1;
-        	cursor_pos = max_position[current_line+1];
-    	}
+    	current_line += 1;
 
     }
 
