@@ -5,4 +5,7 @@
 
 image_speed = 0;
 
-state = 0;
+switch(obj_cursor.otext[y/8,x/7]) {
+case 33:sprite_index = spr_ascii_33 image_speed = 1;break;
+
+}
