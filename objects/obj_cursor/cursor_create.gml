@@ -25,13 +25,13 @@ end_xpos = 0;
 end_ypos = 0;
 
 spr_ind = 0;
-read_file = true;
+read_file = false;
 global.map_file = "";
 global.map_string[0] = "";
 global.map_string_pos[0,0] = "";
 
 global.mode = 0;
-global.gamemode = false;
+global.gamemode = true;
 
 work_dir = working_directory;
 
