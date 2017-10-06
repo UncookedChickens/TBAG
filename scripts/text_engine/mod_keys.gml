@@ -62,6 +62,7 @@ if(key_press(32)){
     }
 
 }
+// Obviously if tab key is pressed
 if(key_press(vk_tab)){
 	switch(global.mode){
     	case 0:global.mode=1 instance_create(start_xpos,start_ypos,obj_player);break;
@@ -69,21 +70,36 @@ if(key_press(vk_tab)){
     }
 
 }
-if(key_press(vk_enter)){
-
+// Again, Obviously if the enter key is pressed
+if(key_press(13)){
+	// If you're currently on the last line, and you're at the last position of that line
     if(current_line=max_line && cursor_pos=max_position[current_line]){
         current_line += 1;
         max_line += 1;
         cursor_pos = 0;
     }
-    else if(current_line<max_line && cursor_pos=max_position[current_line]){
-
-        current_line += 1;
+	// If your line is anything other than the last line
+    else if(current_line<max_line && cursor_pos=max_position[current_line] || cursor_pos=0){
         cursor_pos = 0;
+		if(cursor_pos=max_position[current_line]) {
+			current_line +=1;
+		}else {
+			current_line = current_line;
+		}
+		max_line += 1;
+        // This should re-create all the lines after the current line of your cursor down a whole line
+		for(i=max_line-1;i>current_line;i-=1) {
+			for(j=0;j<max_position[i];j+=1) {
+				otext[i+1,j] = instance_create(j*7,i+1*8,obj_text);
 
-        // For loops go here
-
-        max_line += 1;
+            	if(instance_exists(otext[i,j])){
+                	otext[i+1,j].sprite_index = otext[i,j].sprite_index;
+                	otext[i+1,j].image_index = otext[i,j].image_index;
+            	}
+				
+			}
+			
+		}
 
     }
 
